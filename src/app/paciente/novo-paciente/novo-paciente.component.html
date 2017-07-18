@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col s3">
+
+  </div>
+  <div class="col s6">
+    <form>
+      <div class="row">
+        <h4 class="teal-text">Cadastrar Paciente</h4>
+        <div class="input-field col s12">
+          <input id="nome" type="text" [(ngModel)]="paciente.nome" [ngModelOptions]="{standalone: true}" class="validate">
+          <label for="nome" data-error="Invalido" data-sucess="Correto">Nome</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="parente" type="text" [(ngModel)]="paciente.parente" [ngModelOptions]="{standalone: true}" class="validate">
+          <label for="parente" data-error="Invalido" data-sucess="Correto">Parente</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="telefone" type="tel" [(ngModel)]="paciente.telefone" [ngModelOptions]="{standalone: true}" class="validate">
+          <label for="telefone" data-error="Telefone Invalido" data-sucess="Correto">Telefone</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="telefoneParente" type="tel" [(ngModel)]="paciente.contatoParente" [ngModelOptions]="{standalone: true}" class="validate">
+          <label for="telefoneParente" data-error="Telefone Invalido" data-sucess="Correto">Telefone Parente</label>
+        </div>
+
+        <div class="col s12 m6 l4">
+          <button class="btn btn-large waves-effect waves-light" type="button" name="action" (click)="save()">Cadastrar</button>
+        </div>
+        <div class="col s12 m6 l4">
+          <button class="btn btn-large waves-effect red" type="button" name="action">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col s3">
+
+  </div>
+</div>

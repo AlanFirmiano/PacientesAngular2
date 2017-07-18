@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-12">
+    <h4 class="teal-text">Pacientes</h4>
+  </div>
+  <div class="col-12">
+  <table class="bordered highlight">
+  <thead>
+    <th>Matricula</th>
+    <th>Nome</th>
+    <th>Telefone</th>
+    <th>Parente</th>
+    <th>Progresso</th>
+    <th>Opções</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listaPaciente">
+      <td>{{item.matricula}}</td>
+      <td>{{item.nome}}</td>
+      <td>{{item.telefone}}</td>
+      <td>{{item.parente}}</td>
+      <td>{{item.progresso}}</td>
+      <td>
+        <button type="button" class="btn-floating z-depth-2">
+          <i class="material-icons">search</i>
+        </button>
+        <button type="button" class="btn-floating z-depth-2">
+          <i class="material-icons">mode_edit</i>
+        </button>
+        <button type="button" class="btn-floating z-depth-2" (click)="remover(item)">
+          <i class="material-icons">delete</i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<div class="fixed-action-btn">
+   <a class="btn-floating btn-large red pulse" routerLink="adicionar"><i class="large material-icons">add</i></a>
+</div>

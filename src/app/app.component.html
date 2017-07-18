@@ -1,3 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+<nav>
+  <div class="nav-wrapper teal">
+    <a href="#" class="brand-logo center"><i class="material-icons">supervisor_account</i>{{title}}</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <ul id="nav-mobile" class="rigth hide-on-med-and-down">
+      <li routerLinkActive="active"><a routerLink="/paciente">Pacientes</a></li>
+      <li routerLinkActive="active"><a routerLink="/atividade">Atividades</a></li>
+      <li routerLinkActive="active"><a routerLink="/grafico">Graficos</a></li>
+      <li routerLinkActive="active"><a routerLink="/login">Sair</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+        <li routerLinkActive="active"><a routerLink="/paciente">Pacientes</a></li>
+        <li routerLinkActive="active"><a routerLink="/atividade">Atividades</a></li>
+        <li routerLinkActive="active"><a routerLink="/grafico">Graficos</a></li>
+        <li routerLinkActive="active"><a href="index">Sair</a></li>
+      </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+</div>
