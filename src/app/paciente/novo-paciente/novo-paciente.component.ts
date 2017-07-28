@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Rx';
+import {Router} from "@angular/router";
+
 import { Paciente } from 'app/_models/paciente';
 import { PacienteService } from 'app/paciente/paciente.service';
 import { ToastService } from 'app/toast.service';
@@ -9,20 +12,43 @@ import { ToastService } from 'app/toast.service';
   styleUrls: ['./novo-paciente.component.css']
 })
 export class NovoPacienteComponent implements OnInit {
-  paciente: Paciente = new Paciente();
-  constructor(private servico : PacienteService, private toastService:ToastService) {}
+  private paciente: Paciente;
+  id:number;
+  inscricao:Subscription;
 
-  save(){
-    this.paciente.matricula = "20172016005";
-    this.servico.salvarPaciente(this.paciente).subscribe(
-      res => this.toastService.toast(res,"green pulse"),
+  private aux: boolean = false;
 
-      err => this.toastService.toast(err,"red pulse")
-  );
-
-  }
+  constructor(private servico : PacienteService, private toastService:ToastService, private router: Router) {}
 
   ngOnInit() {
+    if(this.servico.paciente != null) {
+       this.paciente = this.servico.paciente;
+       this.aux = true;
+    }else
+      this.paciente = new Paciente();
   }
+
+  save(){
+    let data = new Date();
+    this.paciente.matricula = ""+data.getFullYear()+(data.getMonth()+1)+data.getDate()+data.getHours()+data.getMinutes()+data.getSeconds();
+    if(!this.aux){
+      this.servico.salvarPaciente(this.paciente).subscribe(
+        res => {
+          this.toastService.toast(res,"green pulse");
+          this.router.navigate(['']);
+        },
+        err => this.toastService.toast(err,"red pulse")
+      );
+    }else{
+      this.servico.editarPaciente(this.paciente).subscribe(
+        res => {
+          this.toastService.toast(res,"green pulse");
+        },
+        err => this.toastService.toast(err,"red pulse")
+      );
+    }
+  }
+
+
 
 }

@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col s12">
     <h4 class="teal-text">Pacientes</h4>
   </div>
-  <div class="col-12">
+  <div class="col s12">
   <table class="bordered highlight">
   <thead>
     <th>Matricula</th>
@@ -20,10 +20,10 @@
       <td>{{item.parente}}</td>
       <td>{{item.progresso}}</td>
       <td>
-        <button type="button" class="btn-floating z-depth-2">
+        <button type="button" class="btn-floating z-depth-2" routerLink="detalhes/{{item.id}}">
           <i class="material-icons">search</i>
         </button>
-        <button type="button" class="btn-floating z-depth-2">
+        <button type="button" class="btn-floating z-depth-2" (click)="editar(item)">
           <i class="material-icons">mode_edit</i>
         </button>
         <button type="button" class="btn-floating z-depth-2" (click)="remover(item)">
@@ -36,5 +36,5 @@
 </div>
 </div>
 <div class="fixed-action-btn">
-   <a class="btn-floating btn-large red pulse" routerLink="adicionar"><i class="large material-icons">add</i></a>
+   <a class="btn-floating btn-large red pulse" (click)="servico.paciente = null;" routerLink="adicionar"><i class="large material-icons">add</i></a>
 </div>

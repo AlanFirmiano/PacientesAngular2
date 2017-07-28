@@ -6,11 +6,11 @@ import { Atividade } from 'app/_models/atividade';
 
 @Injectable()
 export class AtividadeService {
-
+  private url:string = "http://localhost:8080/atividades"
   constructor(private http: Http) {}
 
 public salvarAtividade(atividade:Atividade) : Observable<string>{
-  return this.http.post('http://localhost:8080/atividades/',atividade).map(
+  return this.http.post(this.url,atividade).map(
     (res) => res.text()
     ,
     (err) => err.text()
@@ -18,7 +18,7 @@ public salvarAtividade(atividade:Atividade) : Observable<string>{
 }
 
 public removerAtividade(atividade:Atividade) : Observable<string>{
-  return this.http.delete('http://localhost:8080/atividades/'+atividade.id).map(
+  return this.http.delete(this.url+'/'+atividade.id).map(
     (res) => res.text()
     ,
     (err) => err.text()
@@ -26,7 +26,7 @@ public removerAtividade(atividade:Atividade) : Observable<string>{
 }
 
   public listaAtividade () : Observable<any>{
-    return this.http.get('http://localhost:8080/atividades').map(
+    return this.http.get(this.url).map(
       (res) => res.json()
       ,
       function(err){

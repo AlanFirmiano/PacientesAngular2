@@ -7,6 +7,7 @@ import { PacienteService } from './paciente.service';
 import { PacienteComponent } from './paciente.component';
 import { ListaPacienteComponent } from './lista-paciente/lista-paciente.component';
 import { NovoPacienteComponent } from './novo-paciente/novo-paciente.component';
+import { DetalhesPacienteComponent } from './detalhes-paciente/detalhes-paciente.component';
 import { MaterializeModule } from 'angular2-materialize';
 import { PacienteRoutingModule } from './paciente.router.module';
 import { ToastService } from 'app/toast.service';
@@ -21,8 +22,9 @@ import { ToastService } from 'app/toast.service';
   declarations: [
     PacienteComponent,
     ListaPacienteComponent,
-    NovoPacienteComponent
+    NovoPacienteComponent,
+    DetalhesPacienteComponent
   ],
-  exports: [PacienteComponent,ListaPacienteComponent,NovoPacienteComponent],
+  exports: [PacienteComponent,ListaPacienteComponent,NovoPacienteComponent,DetalhesPacienteComponent],
 })
 export class PacienteModule { }
