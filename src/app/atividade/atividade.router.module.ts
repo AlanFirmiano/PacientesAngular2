@@ -6,7 +6,8 @@ import { NovaAtividadeComponent } from 'app/atividade/nova-atividade/nova-ativid
 
 const APP_ROUTES: Routes = [
   {path:"", component:ListaAtividadeComponent},
-  {path:"adicionar", component:NovaAtividadeComponent}
+  {path:"adicionar", component:NovaAtividadeComponent},
+  {path:"editar", component:NovaAtividadeComponent}
 ]
 
 @NgModule({

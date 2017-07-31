@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastService } from 'app/toast.service';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 import { PacienteService } from '../paciente.service';
 import { Paciente } from '../../_models/paciente';
@@ -13,10 +13,9 @@ import { Paciente } from '../../_models/paciente';
 export class ListaPacienteComponent implements OnInit {
 
   listaPaciente :Paciente[] = [];
-  detalhesPaciente:Paciente;
 
   constructor(private servico :PacienteService, private toastService: ToastService, private router: Router) {
-    this.listar();
+
   }
 
   listar(){
@@ -28,19 +27,20 @@ export class ListaPacienteComponent implements OnInit {
   remover(paciente:Paciente){
     this.servico.removerPaciente(paciente).subscribe(
       res => {
-        this.toastService.toast(res,"green pulse");
+        this.toastService.toast(res,"green");
         this.listar();
       },
-      err => this.toastService.toast(err,"red pulse")
+      err => this.toastService.toast(err,"red")
     );
   }
 
   editar(paciente:Paciente){
     this.servico.paciente = paciente;
-    this.router.navigate(['/editar']);
+    this.router.navigate(['paciente/editar']);
   }
-  ngOnInit() {
 
+  ngOnInit() {
+    this.listar();
   }
 
 }

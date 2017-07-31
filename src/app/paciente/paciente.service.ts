@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Paciente } from 'app/_models/paciente';
-
+import { pacienteAtividade } from 'app/_models/pacienteAtividade';
 @Injectable()
 export class PacienteService {
 
@@ -11,7 +11,7 @@ export class PacienteService {
   private url:string = "http://localhost:8080/pacientes";
 
   constructor(private http: Http) {}
-  
+
   public salvarPaciente(paciente:Paciente) : Observable<string>{
     return this.http.post(this.url,paciente).map(
       (res) => res.text()
@@ -44,7 +44,15 @@ export class PacienteService {
       }
     );
   }
+  public listaAtividades (id:number) : Observable<pacienteAtividade[]>{
+    return this.http.get("http://localhost:8080/pacienteAtividade/porPaciente/"+id).map(
+      (res) => res.json()
+      ,
+      function(err){
 
+      }
+    );
+  }
     public listaPaciente () : Observable<Paciente[]>{
       return this.http.get(this.url).map(
         (res) => res.json()

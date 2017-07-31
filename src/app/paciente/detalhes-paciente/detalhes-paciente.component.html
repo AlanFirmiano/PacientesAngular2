@@ -9,4 +9,14 @@
     <p class="">Telefone : {{paciente?.telefone}}</p>
     <p class="">Contato : {{paciente?.contatoParente}}</p>
   </div>
+  <div class="col s12">
+
+
+      <ul class="collection with-header">
+        <li class="collection-header"><h5>Atividades</h5></li>
+        <li *ngFor="let item of atividades" class="collection-item">{{item.atividade.nome}}</li>
+      </ul>
+
+  </div>
+
 </div>

@@ -18,7 +18,7 @@
         <p><strong>{{item.nome}}</strong></p>
         <p>Nivel : {{item.nivel}}</p>
         <p>Duração : {{item.duracao}}</p>
-        <button type="button" class="btn-floating z-depth-2">
+        <button type="button" class="btn-floating z-depth-2" (click)="editar(item)">
           <i class="material-icons">mode_edit</i>
         </button>
         <button type="button" class="btn-floating z-depth-2" (click)="remover(item)">
@@ -34,5 +34,5 @@
 
 
 <div class="fixed-action-btn">
-   <a class="btn-floating btn-large red pulse" routerLink="adicionar"><i class="large material-icons">add</i></a>
+   <a class="btn-floating btn-large red pulse" (click)="this.servico.atividade = null;" routerLink="adicionar"><i class="large material-icons">add</i></a>
 </div>

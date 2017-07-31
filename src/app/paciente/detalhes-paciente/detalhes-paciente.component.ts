@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Rx';
 
 import { PacienteService } from '../paciente.service';
 import { Paciente } from '../../_models/paciente';
+import { pacienteAtividade } from '../../_models/pacienteAtividade';
 @Component({
   selector: 'app-detalhes-paciente',
   templateUrl: './detalhes-paciente.component.html',
@@ -13,7 +14,9 @@ export class DetalhesPacienteComponent implements OnInit {
 
   id:number;
   paciente:Paciente = new Paciente();
+  teste:string[];
   inscricao:Subscription;
+  atividades:pacienteAtividade[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +31,9 @@ export class DetalhesPacienteComponent implements OnInit {
         this.servico.detalhesPaciente(this.id).subscribe(
           res => this.paciente = res
         );
-
+        this.servico.listaAtividades(this.id).subscribe(
+          res => this.atividades = res
+        );
         if(this.paciente == null){
           this.router.navigate(['']);
         }

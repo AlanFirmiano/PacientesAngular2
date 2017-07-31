@@ -13,9 +13,6 @@ import { ToastService } from 'app/toast.service';
 })
 export class NovoPacienteComponent implements OnInit {
   private paciente: Paciente;
-  id:number;
-  inscricao:Subscription;
-
   private aux: boolean = false;
 
   constructor(private servico : PacienteService, private toastService:ToastService, private router: Router) {}
@@ -29,22 +26,20 @@ export class NovoPacienteComponent implements OnInit {
   }
 
   save(){
-    let data = new Date();
-    this.paciente.matricula = ""+data.getFullYear()+(data.getMonth()+1)+data.getDate()+data.getHours()+data.getMinutes()+data.getSeconds();
     if(!this.aux){
+      let data = new Date();
+      this.paciente.matricula = ""+data.getFullYear()+(data.getMonth()+1)+data.getDate()+data.getHours()+data.getMinutes()+data.getSeconds();
       this.servico.salvarPaciente(this.paciente).subscribe(
-        res => {
-          this.toastService.toast(res,"green pulse");
-          this.router.navigate(['']);
-        },
-        err => this.toastService.toast(err,"red pulse")
+        res => this.toastService.toast(res,"green"),
+        
+        err => this.toastService.toast(err,"red")
       );
     }else{
       this.servico.editarPaciente(this.paciente).subscribe(
         res => {
-          this.toastService.toast(res,"green pulse");
+          this.toastService.toast(res,"green");
         },
-        err => this.toastService.toast(err,"red pulse")
+        err => this.toastService.toast(err,"red")
       );
     }
   }

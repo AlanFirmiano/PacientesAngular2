@@ -8,5 +8,5 @@ export class Paciente {
   parente: string;
   contatoParente: string;
   progresso: number;
-  responsavel: Usuario;
+  responsavel: Usuario = new Usuario();
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+
 import { Atividade } from 'app/_models/atividade';
 import { AtividadeService } from 'app/atividade/atividade.service';
 import { ToastService } from 'app/toast.service';
@@ -8,19 +10,34 @@ import { ToastService } from 'app/toast.service';
   styleUrls: ['./nova-atividade.component.css']
 })
 export class NovaAtividadeComponent implements OnInit {
-  atividade: Atividade = new Atividade();
-  constructor(private servico : AtividadeService, private toastService:ToastService) { }
+  private atividade: Atividade;
+  private aux: boolean = false;
+  constructor(private servico : AtividadeService, private toastService:ToastService, private router: Router) { }
 
   save(){
+    if(!this.aux){
     this.servico.salvarAtividade(this.atividade).subscribe(
       res => this.toastService.toast(res,"green pulse"),
 
       err => this.toastService.toast(err,"red pulse")
-  );
+    );
+  }else{
+    this.servico.editarAtividade(this.atividade).subscribe(
+      res => {
+        this.toastService.toast(res,"green");
+      },
+      err => this.toastService.toast(err,"red")
+    );
+  }
 
   }
 
   ngOnInit() {
+    if(this.servico.atividade != null) {
+       this.atividade = this.servico.atividade;
+       this.aux = true;
+    }else
+      this.atividade = new Atividade();
   }
 
 }

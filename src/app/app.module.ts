@@ -18,9 +18,9 @@ import { LoginModule } from './login/login.module'
     BrowserModule,
     FormsModule,
     HttpModule,
-    AtividadeModule,
-    PacienteModule,
     LoginModule,
+    PacienteModule,
+    AtividadeModule,
     AppRoutingModule,
     MaterializeModule
   ],
