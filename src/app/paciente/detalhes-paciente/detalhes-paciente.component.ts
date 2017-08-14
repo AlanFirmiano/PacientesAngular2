@@ -17,11 +17,13 @@ export class DetalhesPacienteComponent implements OnInit {
   teste:string[];
   inscricao:Subscription;
   atividades:pacienteAtividade[] = [];
-
+  fullImagePath : string;
   constructor(
     private route: ActivatedRoute,
     private router:Router,
-    private servico :PacienteService) {}
+    private servico :PacienteService) {
+      this.fullImagePath = '/assets/images/teste.png';
+    }
 
 
   ngOnInit() {

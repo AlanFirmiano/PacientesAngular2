@@ -27,11 +27,10 @@ export class NovoPacienteComponent implements OnInit {
 
   save(){
     if(!this.aux){
-      let data = new Date();
-      this.paciente.matricula = ""+data.getFullYear()+(data.getMonth()+1)+data.getDate()+data.getHours()+data.getMinutes()+data.getSeconds();
+      this.paciente.matricula = "";
       this.servico.salvarPaciente(this.paciente).subscribe(
         res => this.toastService.toast(res,"green"),
-        
+
         err => this.toastService.toast(err,"red")
       );
     }else{

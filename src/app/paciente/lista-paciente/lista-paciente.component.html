@@ -7,18 +7,16 @@
   <thead>
     <th>Matricula</th>
     <th>Nome</th>
-    <th>Telefone</th>
-    <th>Parente</th>
     <th>Progresso</th>
+    <th>Parente</th>
     <th>Opções</th>
   </thead>
   <tbody>
     <tr *ngFor="let item of listaPaciente">
       <td>{{item.matricula}}</td>
       <td>{{item.nome}}</td>
-      <td>{{item.telefone}}</td>
-      <td>{{item.parente}}</td>
       <td>{{item.progresso}}</td>
+      <td>{{item.parente}}</td>
       <td>
         <button type="button" class="btn-floating z-depth-2" routerLink="detalhes/{{item.id}}">
           <i class="material-icons">search</i>

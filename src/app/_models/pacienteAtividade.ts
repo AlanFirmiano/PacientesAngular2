@@ -7,7 +7,7 @@ export class pacienteAtividade{
   status:boolean;
   mensagem:string;
   escala:number;
-  Data:Date;
+  data:Date;
   paciente:Paciente = new Paciente();
   atividade:Atividade = new Atividade();
 }
