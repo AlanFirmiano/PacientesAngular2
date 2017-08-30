@@ -15,14 +15,15 @@ public salvarAtividade(atividade:Atividade) : Observable<string>{
     (res) => res.text()
     ,
     (err) => err.text()
-  )
+  );
+
 }
 public editarAtividade(atividade:Atividade) : Observable<string>{
   return this.http.put(this.url,atividade).map(
     (res) => res.text()
     ,
     (err) => err.text()
-  )
+  );
 }
 public removerAtividade(atividade:Atividade) : Observable<string>{
   return this.http.delete(this.url+'/'+atividade.id).map(

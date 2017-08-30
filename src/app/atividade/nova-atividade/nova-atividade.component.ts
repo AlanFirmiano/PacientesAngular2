@@ -17,16 +17,21 @@ export class NovaAtividadeComponent implements OnInit {
   save(){
     if(!this.aux){
     this.servico.salvarAtividade(this.atividade).subscribe(
-      res => this.toastService.toast(res,"green pulse"),
-
-      err => this.toastService.toast(err,"red pulse")
+      res => {
+        this.toastService.toast(res, "green");
+      },
+      err => {
+        this.toastService.toast(err, "red");
+      }
     );
   }else{
     this.servico.editarAtividade(this.atividade).subscribe(
       res => {
         this.toastService.toast(res,"green");
       },
-      err => this.toastService.toast(err,"red")
+      err => {
+        this.toastService.toast(err,"red");
+      }
     );
   }
 

@@ -7,6 +7,5 @@ import 'rxjs/add/operator/map';
 export class AppService {
 
   constructor(private http: Http) {}
-
   
 }

@@ -5,14 +5,16 @@ import { HttpModule } from '@angular/http';
 
 import { AppService } from './app.service';
 import { AppComponent } from './app.component';
-import { AtividadeModule } from './atividade/atividade.module'
+import { AtividadeModule } from './atividade/atividade.module';
 import { AppRoutingModule } from './router/routers';
 import { MaterializeModule } from 'angular2-materialize';
 import { PacienteModule } from './paciente/paciente.module';
-import { LoginModule } from './login/login.module'
+import { LoginModule } from './login/login.module';
+import { GraficosModule } from './graficos/graficos.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { LoginModule } from './login/login.module'
     LoginModule,
     PacienteModule,
     AtividadeModule,
+    GraficosModule,
     AppRoutingModule,
     MaterializeModule
   ],
