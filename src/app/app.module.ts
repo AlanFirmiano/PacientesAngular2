@@ -5,12 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppService } from './app.service';
 import { AppComponent } from './app.component';
-import { AtividadeModule } from './atividade/atividade.module';
+import { ExerciseModule } from './exercise/exercise.module';
 import { AppRoutingModule } from './router/routers';
 import { MaterializeModule } from 'angular2-materialize';
-import { PacienteModule } from './paciente/paciente.module';
+import { PatientModule } from './patient/patient.module';
 import { LoginModule } from './login/login.module';
-import { GraficosModule } from './graficos/graficos.module';
+import { PermitionModule } from './permition/permition.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +21,9 @@ import { GraficosModule } from './graficos/graficos.module';
     FormsModule,
     HttpModule,
     LoginModule,
-    PacienteModule,
-    AtividadeModule,
-    GraficosModule,
+    PatientModule,
+    ExerciseModule,
+    PermitionModule,
     AppRoutingModule,
     MaterializeModule
   ],

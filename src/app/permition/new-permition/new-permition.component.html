@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col s12">
+    <h4 class="teal-text">Cadastrar Permissão</h4>
+  </div>
+  <div class="col s12 m12 l12">
+    <div class="input-field col s12">
+        <select class="browser-default" >
+          <option class="large" *ngFor="let item of listaPaciente" value="{{item.id}}">{{item.name}}</option>
+        </select>
+      </div>
+  </div>
+  <div class="col s12 m12 l6">
+    <h4 class="teal-text">Exercícios</h4>
+    <table class="bordered highlight">
+      <thead>
+      <th>Nome</th>
+      <th>Nivel</th>
+      <th>Opções</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let exer of listaExercicio">
+        <td>{{exer.title}}</td>
+        <td>{{exer.id}}</td>
+        <td>
+
+          <button type="button" class="btn-floating hoverable">
+            <i class="material-icons">add</i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col s12 m12 l6">
+    <h4 class="teal-text">Permitidos</h4>
+    <table class="bordered highlight">
+      <thead>
+      <th>Nome</th>
+      <th>Nivel</th>
+      <th>Opções</th>
+      </thead>
+      <tbody>
+      <tr class="hoverable" >
+        <td>TESTE1</td>
+        <td>TESTE1</td>
+        <td>
+
+          <button type="button" class="btn-floating hoverable">
+            <i class="material-icons">delete</i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
