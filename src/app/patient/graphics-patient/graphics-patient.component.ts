@@ -8,6 +8,7 @@ import { Patient } from '../../_models/patient';
 import { Exercise } from 'app/_models/exercise';
 import { Report } from '../../_models/report';
 import * as d3 from 'd3';
+import {Observable} from "rxjs/Observable";
 @Component({
   selector: 'app-graficos-paciente',
   templateUrl: './graphics-patient.component.html',
@@ -20,14 +21,14 @@ export class GraphicsPatientComponent implements OnInit {
   teste: string[];
   inscricao: Subscription;
   atividades: Report[] = [];
+  medias = [];
   todas: Exercise[] = [];
   fullImagePath: string;
 
 
   ngOnInit() {
 
-    this.inscricao = this.route.params.subscribe(
-      (params:any) => {
+    this.inscricao = this.route.params.subscribe((params:any) => {
         this.id = params['id'];
         this.servico.detalhesPaciente(this.id).subscribe(
           res => this.paciente = res
@@ -36,14 +37,18 @@ export class GraphicsPatientComponent implements OnInit {
         this.servico.listaAtividades(this.id).subscribe(
           res => {
             this.atividades = res;
-            this.servico.atividades().subscribe(
-              res => {
-                this.todas = res;
-                this.grafico();
-              }
-            );
+            for(let at of this.atividades) {
+              this.servico.mediaAtividades(at.permition.grasp.exercise.id).subscribe(
+                resp => {
+                  this.medias.push(resp);
+                  this.grafico();
+                }
+              );
+            }
+
           }
         );
+
         if(this.paciente == null){
           this.router.navigate(['']);
         }
@@ -73,9 +78,10 @@ export class GraphicsPatientComponent implements OnInit {
     }
 
     vet2.push("Tempo Medio");
-    for(let i of this.atividades){
-      vet2.push(i.repetitions);
+    for(let x=0;x<this.medias.length;x++){
+      vet2.push(this.medias[x]);
     }
+    console.log(vet2);
 
     for(let i of this.atividades){
       nomes.push(i.permition.grasp.exercise.title);

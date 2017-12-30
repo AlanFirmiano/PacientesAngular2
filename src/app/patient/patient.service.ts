@@ -64,6 +64,16 @@ export class PatientService {
     );
   }
 
+  public mediaAtividades (id: number): Observable<number> {
+    return this.http.get('http://localhost:8080/report/byExercise/' + id).map(
+      (res) => res.json()
+      ,
+      function(err){
+
+      }
+    );
+  }
+
   public listaPaciente(): Observable<Patient[]>{
     return this.http.get(this.url).map(
       (res) => res.json()
