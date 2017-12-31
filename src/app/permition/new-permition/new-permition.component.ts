@@ -7,6 +7,8 @@ import { ToastService } from 'app/toast.service';
 import { PermitionService } from "../permition.service";
 import {Permition} from "app/_models/permition";
 import {Exercise} from "app/_models/exercise";
+import {Grasp} from "../../_models/grasp";
+import {Level} from "../../_models/level";
 
 @Component({
   selector: 'app-nova-permissao',
@@ -15,7 +17,7 @@ import {Exercise} from "app/_models/exercise";
 })
 export class NewPermitionComponent implements OnInit {
   listaPaciente: Patient[] = [];
-  listaExercicio: Exercise[] = [];
+  listaGrasp: Grasp[] = [];
   private permition: Permition;
   private aux = false;
 
@@ -30,7 +32,7 @@ export class NewPermitionComponent implements OnInit {
 
     }
 
-    this.listarExercises();
+    this.listarGrasps();
     this.listarPatients();
   }
   listarPatients(){
@@ -38,9 +40,11 @@ export class NewPermitionComponent implements OnInit {
       res => this.listaPaciente = res
     );
   }
-  listarExercises(){
-    this.servico.listaExercises().subscribe(
-      res => this.listaExercicio = res
+  listarGrasps(){
+    this.servico.listaGrasp().subscribe(
+      res => {
+        this.listaGrasp = res;
+      }
     );
   }
   save(){

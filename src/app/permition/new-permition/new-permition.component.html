@@ -11,46 +11,18 @@
   </div>
   <div class="col s12 m12 l6">
     <h4 class="teal-text">Exercícios</h4>
-    <table class="bordered highlight">
-      <thead>
-      <th>Nome</th>
-      <th>Nivel</th>
-      <th>Opções</th>
-      </thead>
-      <tbody>
-      <tr *ngFor="let exer of listaExercicio">
-        <td>{{exer.title}}</td>
-        <td>{{exer.id}}</td>
-        <td>
+    <div class="card" *ngFor="let x of listaGrasp">
+      <div class="card-content">
+        <span class="card-title">{{x.exercise.title}}</span>
+          <p>{{x.exercise.description}}</p>
+      </div>
+      <div class="card-action">
 
-          <button type="button" class="btn-floating hoverable">
-            <i class="material-icons">add</i>
-          </button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+      </div>
+    </div>
   </div>
   <div class="col s12 m12 l6">
     <h4 class="teal-text">Permitidos</h4>
-    <table class="bordered highlight">
-      <thead>
-      <th>Nome</th>
-      <th>Nivel</th>
-      <th>Opções</th>
-      </thead>
-      <tbody>
-      <tr class="hoverable" >
-        <td>TESTE1</td>
-        <td>TESTE1</td>
-        <td>
 
-          <button type="button" class="btn-floating hoverable">
-            <i class="material-icons">delete</i>
-          </button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
   </div>
 </div>

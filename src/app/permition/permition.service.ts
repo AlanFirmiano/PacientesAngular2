@@ -51,8 +51,8 @@ export class PermitionService {
       }
     );
   }
-  public listaExercises (): Observable<any> {
-    return this.http.get('http://localhost:8080/exercises').map(
+  public listaGrasp (): Observable<any> {
+    return this.http.get('http://localhost:8080/grasp').map(
       (res) => res.json()
       ,
       function(err){

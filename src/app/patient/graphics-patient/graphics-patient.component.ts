@@ -113,6 +113,7 @@ export class GraphicsPatientComponent implements OnInit {
 
         ],
         type: 'bar'
+
       },
       zoom: {
         enabled: true
@@ -175,7 +176,6 @@ export class GraphicsPatientComponent implements OnInit {
           x2:'spline'
         }
       },
-
       transition: {
         duration: 500
       },

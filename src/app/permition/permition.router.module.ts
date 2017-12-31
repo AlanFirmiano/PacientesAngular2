@@ -5,8 +5,8 @@ import {ListPermitionComponent} from './list-permition/list-permition.component'
 import {NewPermitionComponent} from './new-permition/new-permition.component';
 
 const APP_ROUTES: Routes = [
-  {path: '', component: ListPermitionComponent},
-  {path: 'adicionar', component: NewPermitionComponent},
+  {path: '', component: NewPermitionComponent},
+  {path: 'lista', component: ListPermitionComponent},
   {path: 'editar', component: NewPermitionComponent}
 ]
 
