@@ -12,22 +12,22 @@
     <th>Opções</th>
   </thead>
   <tbody>
-    <tr class="hoverable" *ngFor="let item of listaPaciente">
+    <tr *ngFor="let item of listaPaciente">
       <td>{{item.registration}}</td>
       <td>{{item.name}}</td>
       <td>{{item.progress}}</td>
       <td>{{item.parent}}</td>
       <td>
-        <button type="button" class="btn-floating hoverable" routerLink="graficos/{{item.id}}">
+        <button type="button" class="btn-floating" routerLink="graficos/{{item.id}}">
           <i class="material-icons">timeline</i>
         </button>
-        <button type="button" class="btn-floating hoverable" routerLink="detalhes/{{item.id}}">
+        <button type="button" class="btn-floating" routerLink="detalhes/{{item.id}}">
           <i class="material-icons">search</i>
         </button>
-        <button type="button" class="btn-floating hoverable" (click)="editar(item)">
+        <button type="button" class="btn-floating" (click)="editar(item)">
           <i class="material-icons">mode_edit</i>
         </button>
-        <button type="button" class="btn-floating hoverable" (click)="remover(item)">
+        <button type="button" class="btn-floating" (click)="remover(item)">
           <i class="material-icons">delete</i>
         </button>
       </td>
