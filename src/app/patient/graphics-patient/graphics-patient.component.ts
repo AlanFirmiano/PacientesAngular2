@@ -24,7 +24,11 @@ export class GraphicsPatientComponent implements OnInit {
   medias = [];
   todas: Exercise[] = [];
   fullImagePath: string;
-
+  e1 = 0;
+  e2 = 0;
+  e3 = 0;
+  e4 = 0;
+  e5 = 0;
 
   ngOnInit() {
 
@@ -62,7 +66,7 @@ export class GraphicsPatientComponent implements OnInit {
     let vet = [];
     let vet2 = [];
     let dor = [0];
-    let e1=0,e2=0,e3=0,e4=0,e5=0;
+
     let x1 = [];
     let x2 = [];
     let xn = [];
@@ -89,15 +93,15 @@ export class GraphicsPatientComponent implements OnInit {
 
     for(let i of this.atividades){
       if(i.effortLevel==1){
-        e1++;
+        this.e1++;
       }else if(i.effortLevel==2){
-        e2++;
+        this.e2++;
       }else if(i.effortLevel==3){
-        e3++;
+        this.e3++;
       }else if(i.effortLevel==4){
-        e4++;
+        this.e4++;
       }else if(i.effortLevel==5){
-        e5++;
+        this.e5++;
       }
     }
     let chart = c3.generate({
@@ -141,16 +145,13 @@ export class GraphicsPatientComponent implements OnInit {
 
         data: {
           columns: [
-            ['1',e1],
-            ['2',e2],
-            ['3',e3],
-            ['4',e4],
-            ['5',e5]
+            ['1 - ' + (this.e1 / 5), this.e1],
+            ['2 - ' + (this.e2 / 5), this.e2],
+            ['3 - ' + (this.e3 / 5), this.e3],
+            ['4 - ' + (this.e4 / 5), this.e4],
+            ['5 - ' + (this.e5 / 5), this.e5]
           ],
-          type: 'donut'
-        },
-        transition: {
-          duration: 500
+          type: 'line'
         },
         donut: {
           title: "Esforço"
@@ -159,6 +160,13 @@ export class GraphicsPatientComponent implements OnInit {
           position:'right'
         }
     });
+    setTimeout(function () {
+      chart2.transform('pie');
+    }, 1000);
+
+    setTimeout(function () {
+      chart2.transform('donut');
+    }, 2000);
     let chart3 = c3.generate({
 
       bindto: '#chart3',

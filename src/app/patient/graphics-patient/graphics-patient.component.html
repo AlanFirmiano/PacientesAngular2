@@ -1,22 +1,26 @@
 
-  <div class="col s12">
-    <h4 class="teal-text"><strong>{{paciente?.name}}</strong></h4>
-  </div>
-  <div class="col s12">
-    <p class="">Matricula : {{paciente?.registration}}</p>
-    <p class="">Telefone : {{paciente?.phone}}</p>
-    <p class="">Progresso : {{paciente?.progress}}</p>
-    <p class="">Responsável : {{paciente?.parent}}</p>
-    <p class="">Contato : {{paciente?.phoneParent}}</p>
-  </div>
-  <div class="col s12 teal">
-    <h4 class="white-text">Graficos</h4>
+<div class="col s12 m12 l12">
+  <h4 class="teal-text"><strong>{{paciente?.name}}</strong></h4>
+</div>
 
+<div class="col s12 m12 l12">
+  <p class="">Matricula : {{paciente?.registration}}</p>
+  <p class="">Telefone : {{paciente?.phone}}</p>
+  <p class="">Progresso : {{paciente?.progress}}</p>
+  <p class="">Responsável : {{paciente?.parent}}</p>
+  <p class="">Contato : {{paciente?.phoneParent}}</p>
+</div>
 
-    <div id="chart" class="white"></div>
-    <div id="chart2" class="white"></div>
+<div class="col s12 teal">
+  <h4 class="white-text">Graficos</h4>
+  <div id="chart2" class="white"></div>
+  <div id="chart" class="white"></div>
+  <div id="chart3" class="white"></div>
+</div>
 
-    <div id="chart3" class="white"></div>
-  </div>
-
+<div *ngFor="let msg of atividades">
+  <p *ngIf="msg.message">
+    {{msg.permition.grasp.level.level}} - {{msg.permition.grasp.exercise.title}} - {{msg.message}}
+  </p>
+</div>
 
