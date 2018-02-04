@@ -2,7 +2,14 @@
   <nav>
     <div class="nav-wrapper teal darken-3">
       <a href="#!" class="brand-logo thin"><i class="material-icons">supervisor_account</i>Acompanhamento</a>
+      <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+        <li routerLinkActive="active"><a routerLink="/paciente">Pacientes</a></li>
+        <li routerLinkActive="active"><a routerLink="/atividade">Atividades</a></li>
+        <li routerLinkActive="active"><a routerLink="/permissoes">Permissões</a></li>
+        <li routerLinkActive="active"><a routerLink="/login">Sair</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile">
         <li routerLinkActive="active"><a routerLink="/paciente">Pacientes</a></li>
         <li routerLinkActive="active"><a routerLink="/atividade">Atividades</a></li>
         <li routerLinkActive="active"><a routerLink="/permissoes">Permissões</a></li>
