@@ -35,6 +35,11 @@ export class NewPermitionComponent implements OnInit {
     this.listarGrasps();
     this.listarPatients();
   }
+
+  adicionar(){
+
+  }
+
   listarPatients(){
     this.servico.listaPatients().subscribe(
       res => this.listaPaciente = res
