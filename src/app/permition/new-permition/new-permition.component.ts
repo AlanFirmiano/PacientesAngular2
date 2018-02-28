@@ -34,6 +34,7 @@ export class NewPermitionComponent implements OnInit {
 
     this.listarGrasps();
     this.listarPatients();
+    console.log("klhkjhk");
   }
 
   adicionar(){

@@ -1,20 +1,24 @@
 <div class="row">
-  <div class="col s12">
+  <div class="col s12 m12 l7">
     <h4 class="teal-text">Cadastrar Permissão</h4>
-  </div>
-  <div class="col s12 m12 l12">
-    <div class="input-field col s12">
+    <div class="col s12 m12 l12">
+      <div class="input-field col s12">
         <select class="browser-default" >
           <option class="large" *ngFor="let item of listaPaciente" value="{{item.id}}">{{item.name}}</option>
         </select>
       </div>
+    </div>
   </div>
-  <div class="col s12 m12 l12">
+
+  <div class="col s12 m12 l5">
     <h4 class="teal-text">Definidos</h4>
-    <button type="button" class="btn-floating btn-large"><i class="material-icons white-text">filter_1</i></button>
-    <button type="button" class="btn-floating btn-large"><i class="material-icons white-text">filter_2</i></button>
-    <button type="button" class="btn-floating btn-large"><i class="material-icons white-text">filter_3</i></button>
+    <div class="col s12 m12 l12">
+      <button type="button" class="btn-floating btn-large"><i class="material-icons white-text">filter_1</i></button>
+      <button type="button" class="btn-floating btn-large"><i class="material-icons white-text">filter_2</i></button>
+      <button type="button" class="btn-floating btn-large"><i class="material-icons white-text">filter_3</i></button>
+    </div>
   </div>
+
   <div class="col s12 m12 l6">
     <h4 class="teal-text">Exercícios</h4>
     <table class="bordered highlight">
@@ -24,9 +28,9 @@
       <th>Opções</th>
       </thead>
       <tbody>
-      <tr *ngFor="let x of listaGrasp; let y of x.level">
+      <tr *ngFor="let x of listaGrasp">
         <td>{{x.exercise.title}}</td>
-        <td>{{y.level.level}}</td>
+        <td>{{x.level.level}}</td>
         <td>
           <button type="button" class="btn-floating z-depth-2" (click)="remNivel3(item)">
             <i class="material-icons">keyboard_arrow_right</i>

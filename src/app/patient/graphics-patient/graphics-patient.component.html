@@ -19,9 +19,18 @@
 </div>
 
 <div class="col s12 teal">
-  <h4 class="white-text">Graficos</h4>
+  <h4 class="white-text">Gráficos</h4>
+  <div>
+    <p class="white-text">Escala de Borg</p>
+  </div>
   <div id="chart2" class="white"></div>
+  <div>
+    <p class="white-text">Tempo Medio</p>
+  </div>
   <div id="chart" class="white"></div>
+  <div>
+    <p class="white-text">Tempo por Exercício</p>
+  </div>
   <div id="chart3" class="white"></div>
 
   <h4 class="white-text">Mensagens</h4>
@@ -29,7 +38,7 @@
 <div class="col s12 teal" *ngFor="let msg of atividades">
 
   <p class="white" *ngIf="msg.message">
-    {{msg.permition.grasp.level.level}} - {{msg.permition.grasp.exercise.title}} - {{msg.message}}
+    <b>Nivel</b> : {{msg.permition.grasp.level.level}} <b>Exercício</b> : {{msg.permition.grasp.exercise.title}} <b>Mensagem</b> : {{msg.message}}
   </p>
 </div>
 
